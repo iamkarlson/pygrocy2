@@ -18,8 +18,7 @@ def test_equipment_init_from_current_response():
     assert equipment.instruction_manual_file_name is None
     assert equipment.created_timestamp is None
     assert equipment.userfields is None
-    assert equipment.last_maintenance is None
-    assert equipment.next_estimated_maintenance_time is None
+
 
 
 def test_equipment_init_from_details_response():
@@ -34,9 +33,7 @@ def test_equipment_init_from_details_response():
     )
 
     response = EquipmentDetailsResponse(
-        equipment=equipment_data,
-        last_maintenance=datetime(2025, 2, 1),
-        next_estimated_maintenance_time=datetime(2025, 4, 1)
+        equipment=equipment_data
     )
 
     equipment = Equipment(response)
@@ -47,8 +44,6 @@ def test_equipment_init_from_details_response():
     assert equipment.instruction_manual_file_name == "manual.pdf"
     assert equipment.created_timestamp == datetime(2025, 3, 23)
     assert equipment.userfields == {"custom_field": "custom_value"}
-    assert equipment.last_maintenance == datetime(2025, 2, 1)
-    assert equipment.next_estimated_maintenance_time == datetime(2025, 4, 1)
 
 
 def test_equipment_as_dict():
@@ -63,9 +58,7 @@ def test_equipment_as_dict():
     )
 
     response = EquipmentDetailsResponse(
-        equipment=equipment_data,
-        last_maintenance=datetime(2025, 2, 1),
-        next_estimated_maintenance_time=datetime(2025, 4, 1)
+        equipment=equipment_data
     )
 
     equipment = Equipment(response)
@@ -78,8 +71,6 @@ def test_equipment_as_dict():
         "instruction_manual_file_name": "manual.pdf",
         "created_timestamp": datetime(2025, 3, 23),
         "userfields": {"custom_field": "custom_value"},
-        "last_maintenance": datetime(2025, 2, 1),
-        "next_estimated_maintenance_time": datetime(2025, 4, 1),
     }
     assert result == expected
 
@@ -99,9 +90,7 @@ def test_equipment_get_details():
     )
 
     details_response = EquipmentDetailsResponse(
-        equipment=equipment_data,
-        last_maintenance=datetime(2025, 2, 1),
-        next_estimated_maintenance_time=datetime(2025, 4, 1)
+        equipment=equipment_data
     )
 
     # Create mock API client
@@ -117,5 +106,3 @@ def test_equipment_get_details():
     assert equipment.description == "Detailed Description"
     assert equipment.instruction_manual_file_name == "manual.pdf"
     assert equipment.userfields == {"field": "value"}
-    assert equipment.last_maintenance == datetime(2025, 2, 1)
-    assert equipment.next_estimated_maintenance_time == datetime(2025, 4, 1)

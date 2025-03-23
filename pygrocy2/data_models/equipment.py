@@ -30,8 +30,6 @@ class Equipment(DataModel):
         self._instruction_manual_file_name = response.equipment.instruction_manual_file_name
         self._created_timestamp = response.equipment.created_timestamp
         self._userfields = response.equipment.userfields
-        self._last_maintenance = response.last_maintenance
-        self._next_estimated_maintenance_time = response.next_estimated_maintenance_time
 
     def _init_empty(self):
         self._id = None
@@ -40,8 +38,6 @@ class Equipment(DataModel):
         self._instruction_manual_file_name = None
         self._created_timestamp = None
         self._userfields = None
-        self._last_maintenance = None
-        self._next_estimated_maintenance_time = None
 
     def get_details(self, api_client: GrocyApiClient):
         details = api_client.get_equipment(self._id)
@@ -71,13 +67,7 @@ class Equipment(DataModel):
     def userfields(self):
         return self._userfields
 
-    @property
-    def last_maintenance(self) -> datetime:
-        return self._last_maintenance
 
-    @property
-    def next_estimated_maintenance_time(self) -> datetime:
-        return self._next_estimated_maintenance_time
 
     def as_dict(self):
         """Return a dict representation of the equipment."""
@@ -88,6 +78,4 @@ class Equipment(DataModel):
             "instruction_manual_file_name": self.instruction_manual_file_name,
             "created_timestamp": self.created_timestamp,
             "userfields": self.userfields,
-            "last_maintenance": self.last_maintenance,
-            "next_estimated_maintenance_time": self.next_estimated_maintenance_time,
         }

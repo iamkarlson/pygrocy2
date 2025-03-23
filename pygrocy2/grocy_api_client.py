@@ -257,8 +257,6 @@ class CurrentEquipmentResponse(BaseModel):
 
 class EquipmentDetailsResponse(BaseModel):
     equipment: EquipmentData
-    last_maintenance: datetime | None = None
-    next_estimated_maintenance_time: datetime | None = None
 
 
 class MealPlanSectionResponse(BaseModel):
@@ -853,19 +851,10 @@ class GrocyApiClient(object):
 
     def get_equipment(self, equipment_id: int) -> EquipmentDetailsResponse:
         """Get details of a specific equipment item."""
-        # Get basic equipment data from objects endpoint
         parsed_json = self._do_get_request(f"objects/equipment/{equipment_id}")
         if parsed_json:
-            # Create equipment data object
             equipment_data = EquipmentData(**parsed_json)
-
-            # For now, return just the equipment data without maintenance info
-            # as the maintenance endpoint might not be available in all Grocy versions
-            return EquipmentDetailsResponse(
-                equipment=equipment_data,
-                last_maintenance=None,
-                next_estimated_maintenance_time=None
-            )
+            return EquipmentDetailsResponse(equipment=equipment_data)
         return None
 
     def get_all_equipment(self, query_filters: list[str] = None) -> list[CurrentEquipmentResponse]:
