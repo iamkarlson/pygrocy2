@@ -20,7 +20,6 @@ def test_equipment_init_from_current_response():
     assert equipment.userfields is None
 
 
-
 def test_equipment_init_from_details_response():
     """Test Equipment initialization from EquipmentDetailsResponse."""
     equipment_data = EquipmentData(
