@@ -250,11 +250,6 @@ class EquipmentData(BaseModel):
     userfields: dict | None = None
 
 
-class CurrentEquipmentResponse(BaseModel):
-    id: int
-    name: str
-
-
 class EquipmentDetailsResponse(BaseModel):
     equipment: EquipmentData
 
@@ -857,12 +852,9 @@ class GrocyApiClient(object):
             return EquipmentDetailsResponse(equipment=equipment_data)
         return None
 
-    def get_all_equipment(self, query_filters: list[str] = None) -> list[CurrentEquipmentResponse]:
+    def get_all_equipment(self, query_filters: list[str] = None) -> list[dict]:
         """Get all equipment items."""
-        parsed_json = self._do_get_request("objects/equipment", query_filters)
-        if parsed_json:
-            return [CurrentEquipmentResponse(**equipment) for equipment in parsed_json]
-        return []
+        return self._do_get_request("objects/equipment", query_filters) or []
 
     def get_users(self) -> list[UserDto]:
         parsed_json = self._do_get_request("users")
