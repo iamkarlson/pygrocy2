@@ -6,6 +6,7 @@ import deprecation
 from .base import DataModel  # noqa: F401
 from .data_models.battery import Battery
 from .data_models.chore import Chore
+from .data_models.equipment import Equipment
 from .data_models.generic import EntityType
 from .data_models.meal_items import MealPlanItem, MealPlanSection, RecipeItem
 from .data_models.product import Group, Product, ShoppingListProduct
@@ -412,3 +413,44 @@ class Grocy(object):
         if user:
             return User(user)
         return None
+
+    def equipment(self, query_filters: list[str] = None, get_details: bool = False) -> list[Equipment]:
+        """Return a list of equipment items."""
+        raw_equipment = self._api_client.get_all_equipment(query_filters)
+        equipment_items = [Equipment(item) for item in raw_equipment]
+
+        if get_details:
+            for item in equipment_items:
+                item.get_details(self._api_client)
+
+        return equipment_items
+
+    def get_equipment(self, equipment_id: int) -> Equipment:
+        """Return a single equipment item by ID."""
+        equipment_data = self._api_client.get_equipment(equipment_id)
+        if equipment_data:
+            return Equipment(equipment_data)
+        return None
+
+    def get_equipment_by_name(self, name: str) -> Equipment:
+        """Return a single equipment item by name."""
+        query_filters = [f"name={name}"]
+        equipment_items = self.equipment(query_filters, True)
+        if equipment_items and len(equipment_items) > 0:
+            return equipment_items[0]
+        return None
+
+    def get_all_equipment_objects(self) -> list[Equipment]:
+        """Return all equipment objects with full details."""
+        raw_equipment = self.get_generic_objects_for_type(EntityType.EQUIPMENT)
+
+        from .grocy_api_client import EquipmentData
+        equipment_data = [EquipmentData(**equipment) for equipment in raw_equipment]
+
+        equipment_items = []
+        for item in equipment_data:
+            equipment_details = self._api_client.get_equipment(item.id)
+            if equipment_details:
+                equipment_items.append(Equipment(equipment_details))
+
+        return equipment_items

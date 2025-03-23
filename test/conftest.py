@@ -2,7 +2,7 @@ from test.test_const import CONST_BASE_URL, CONST_PORT, CONST_SSL
 
 import pytest
 
-from pygrocy2 import Grocy
+from pygrocy2.grocy import Grocy
 
 
 @pytest.fixture
