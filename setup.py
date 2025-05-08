@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pygrocy2",
-    version="2.4.0",
+    version="2.4.1",
     author="Flipper",
     description="",
     long_description=long_description,
@@ -16,7 +16,7 @@ setuptools.setup(
     install_requires=[
         "requests",
         "deprecation~=2.1.0",
-        "pydantic~=2.10.4",
+        "pydantic~=2.11.3",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
