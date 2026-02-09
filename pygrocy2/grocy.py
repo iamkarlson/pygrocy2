@@ -92,6 +92,17 @@ class Grocy(object):
                 item.get_details(self._api_client)
         return missing_products
 
+    def products(self) -> list[Product]:
+        """
+        Get all products (in stock or not)
+
+        :rtype: list[Product]
+        """
+        list_products = self._api_client.get_products()
+        if list_products:
+            return [Product(product) for product in list_products]
+        return None
+
     def product(self, product_id: int) -> Product:
         resp = self._api_client.get_product(product_id)
         if resp:
