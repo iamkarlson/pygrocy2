@@ -1,0 +1,211 @@
+interactions:
+  - request:
+      body: null
+      headers:
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        User-Agent:
+          - python-requests/2.32.5
+        accept:
+          - application/json
+      method: GET
+      uri: http://localhost:9192/api/objects/shopping_list
+    response:
+      body:
+        string: '[{"id":1,"product_id":null,"note":"Some good snacks","amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":null},{"id":2,"product_id":20,"note":null,"amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":3},{"id":3,"product_id":17,"note":null,"amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":5},{"id":4,"product_id":3,"note":null,"amount":3,"row_created_timestamp":"2026-01-07
+          22:58:39","shopping_list_id":1,"done":0,"qu_id":3},{"id":5,"product_id":4,"note":null,"amount":5,"row_created_timestamp":"2026-01-07
+          22:58:39","shopping_list_id":1,"done":0,"qu_id":3}]'
+      headers:
+        Access-Control-Allow-Headers:
+          - '*'
+        Access-Control-Allow-Methods:
+          - GET, POST, PUT, DELETE, OPTIONS
+        Access-Control-Allow-Origin:
+          - '*'
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Date:
+          - Wed, 07 Jan 2026 23:00:19 GMT
+        Server:
+          - nginx
+        Transfer-Encoding:
+          - chunked
+        X-Powered-By:
+          - PHP/8.3.19
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: '{"done": 1}'
+      headers:
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        Content-Length:
+          - '11'
+        Content-Type:
+          - application/json
+        User-Agent:
+          - python-requests/2.32.5
+        accept:
+          - application/json
+      method: PUT
+      uri: http://localhost:9192/api/objects/shopping_list/2
+    response:
+      body:
+        string: ''
+      headers:
+        Access-Control-Allow-Headers:
+          - '*'
+        Access-Control-Allow-Methods:
+          - GET, POST, PUT, DELETE, OPTIONS
+        Access-Control-Allow-Origin:
+          - '*'
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Date:
+          - Wed, 07 Jan 2026 23:00:19 GMT
+        Server:
+          - nginx
+        X-Powered-By:
+          - PHP/8.3.19
+      status:
+        code: 204
+        message: No Content
+  - request:
+      body: null
+      headers:
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        User-Agent:
+          - python-requests/2.32.5
+        accept:
+          - application/json
+      method: GET
+      uri: http://localhost:9192/api/objects/shopping_list
+    response:
+      body:
+        string: '[{"id":1,"product_id":null,"note":"Some good snacks","amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":null},{"id":2,"product_id":20,"note":null,"amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":1,"qu_id":3},{"id":3,"product_id":17,"note":null,"amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":5},{"id":4,"product_id":3,"note":null,"amount":3,"row_created_timestamp":"2026-01-07
+          22:58:39","shopping_list_id":1,"done":0,"qu_id":3},{"id":5,"product_id":4,"note":null,"amount":5,"row_created_timestamp":"2026-01-07
+          22:58:39","shopping_list_id":1,"done":0,"qu_id":3}]'
+      headers:
+        Access-Control-Allow-Headers:
+          - '*'
+        Access-Control-Allow-Methods:
+          - GET, POST, PUT, DELETE, OPTIONS
+        Access-Control-Allow-Origin:
+          - '*'
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Date:
+          - Wed, 07 Jan 2026 23:00:19 GMT
+        Server:
+          - nginx
+        Transfer-Encoding:
+          - chunked
+        X-Powered-By:
+          - PHP/8.3.19
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: '{"done": 0}'
+      headers:
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        Content-Length:
+          - '11'
+        Content-Type:
+          - application/json
+        User-Agent:
+          - python-requests/2.32.5
+        accept:
+          - application/json
+      method: PUT
+      uri: http://localhost:9192/api/objects/shopping_list/2
+    response:
+      body:
+        string: ''
+      headers:
+        Access-Control-Allow-Headers:
+          - '*'
+        Access-Control-Allow-Methods:
+          - GET, POST, PUT, DELETE, OPTIONS
+        Access-Control-Allow-Origin:
+          - '*'
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Date:
+          - Wed, 07 Jan 2026 23:00:19 GMT
+        Server:
+          - nginx
+        X-Powered-By:
+          - PHP/8.3.19
+      status:
+        code: 204
+        message: No Content
+  - request:
+      body: null
+      headers:
+        Accept-Encoding:
+          - gzip, deflate
+        Connection:
+          - keep-alive
+        User-Agent:
+          - python-requests/2.32.5
+        accept:
+          - application/json
+      method: GET
+      uri: http://localhost:9192/api/objects/shopping_list
+    response:
+      body:
+        string: '[{"id":1,"product_id":null,"note":"Some good snacks","amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":null},{"id":2,"product_id":20,"note":null,"amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":3},{"id":3,"product_id":17,"note":null,"amount":1,"row_created_timestamp":"2026-01-07
+          22:58:34","shopping_list_id":1,"done":0,"qu_id":5},{"id":4,"product_id":3,"note":null,"amount":3,"row_created_timestamp":"2026-01-07
+          22:58:39","shopping_list_id":1,"done":0,"qu_id":3},{"id":5,"product_id":4,"note":null,"amount":5,"row_created_timestamp":"2026-01-07
+          22:58:39","shopping_list_id":1,"done":0,"qu_id":3}]'
+      headers:
+        Access-Control-Allow-Headers:
+          - '*'
+        Access-Control-Allow-Methods:
+          - GET, POST, PUT, DELETE, OPTIONS
+        Access-Control-Allow-Origin:
+          - '*'
+        Connection:
+          - keep-alive
+        Content-Type:
+          - application/json
+        Date:
+          - Wed, 07 Jan 2026 23:00:19 GMT
+        Server:
+          - nginx
+        Transfer-Encoding:
+          - chunked
+        X-Powered-By:
+          - PHP/8.3.19
+      status:
+        code: 200
+        message: OK
+version: 1

@@ -287,6 +287,11 @@ class Grocy(object):
             product_id, shopping_list_id, amount
         )
 
+    def mark_product_in_shoppping_list(self, shopping_list_item_id: int, done: bool):
+        return self._api_client.mark_product_in_shoppping_list(
+            shopping_list_item_id, done
+        )
+
     def product_groups(self, query_filters: list[str] | None = None) -> list[Group]:
         raw_groups = self._api_client.get_product_groups(query_filters)
         return [Group(resp) for resp in raw_groups]

@@ -98,6 +98,9 @@ for item in items:
 # Add a product to the shopping list
 grocy.add_product_to_shopping_list(product_id=1, amount=3)
 
+# Mark first product of the shopping list as done
+grocy.mark_product_in_shoppping_list(shopping_list_item_id=items[0].id, done=True)
+
 # Add all missing products
 grocy.add_missing_product_to_shopping_list()
 
