@@ -79,6 +79,7 @@ class Product(DataModel):
         self._amount_opened_aggregated = None
         self._is_aggregated_amount = None
         self._best_before_date = None
+        self._shopping_location_id = None
 
         self._default_quantity_unit_purchase = None
 
@@ -118,6 +119,7 @@ class Product(DataModel):
         self._id = product.id
         self._product_group_id = product.product_group_id
         self._name = product.name
+        self._shopping_location_id = product.shopping_location_id
 
     def _init_from_StockLogResponse(self, response: StockLogResponse):
         self._id = response.product_id
@@ -129,6 +131,7 @@ class Product(DataModel):
             self._barcodes = [ProductBarcode(barcode) for barcode in details.barcodes]
             self._product_group_id = details.product.product_group_id
             self._available_amount = details.stock_amount
+            self._shopping_location_id = details.product.shopping_location_id
 
     @property
     def name(self) -> str:

@@ -86,6 +86,7 @@ class ProductData(BaseModel):
     name: str
     description: str | None = None
     location_id: int | None = None
+    shopping_location_id: int | None = None
     product_group_id: int | None = None
     qu_id_stock: int
     qu_id_purchase: int
